@@ -25,6 +25,7 @@ function CheckboxField(props) {
     form: { errors, touched },
     label,
     disabled,
+    labelStyle,
   } = props;
   const showError = errors[name] && touched[name];
 
@@ -42,7 +43,7 @@ function CheckboxField(props) {
         disabled={disabled}
         onChange={onChange}
       />
-      <label htmlFor={name} className='p-checkbox-label'>
+      <label style={labelStyle} htmlFor={name} className='p-checkbox-label'>
         {label}
       </label>
     </div>

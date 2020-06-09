@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import LoginForm from '../../components/form';
 import { login } from '../../slice';
 import { useDispatch } from 'react-redux';
+import { Card } from 'primereact/card';
 
 MainPage.propTypes = {};
 
@@ -23,9 +24,9 @@ function MainPage(props) {
     });
   };
   return (
-    <div>
+    <Card>
       <LoginForm onSubmit={handleSubmit} />
-    </div>
+    </Card>
   );
 }
 

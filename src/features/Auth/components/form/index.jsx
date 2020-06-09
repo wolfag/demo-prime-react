@@ -36,7 +36,9 @@ function LoginForm(props) {
         alignItems: 'center',
         flexDirection: 'column',
       }}>
-      <h1>Welcome back! Please login to your account.</h1>
+      <h1 style={{ color: '#fff' }}>
+        Welcome back! Please login to your account.
+      </h1>
       <div
         style={{
           display: 'flex',
@@ -51,9 +53,9 @@ function LoginForm(props) {
             const { values, errors, touched, isSubmitting } = formikProps;
             console.log({ values, errors, touched, isSubmitting });
             return (
-              <Form>
+              <Form style={{ width: 400 }}>
                 <div className='p-fluid'>
-                  <div className='p-field'>
+                  <div className='p-field' style={{ marginBottom: 20 }}>
                     <FastField
                       name='username'
                       component={InputField}
@@ -61,33 +63,47 @@ function LoginForm(props) {
                       placeholder='Username'
                     />
                   </div>
-                  <div className='p-field'>
+                  <div className='p-field' style={{ marginBottom: 20 }}>
                     <FastField
                       name='password'
                       component={PasswordField}
                       label='Password'
                       placeholder='Password'
+                      feedback={false}
                     />
                   </div>
                 </div>
 
-                <div className='p-fluid p-formgrid p-grid'>
-                  <div className='p-field p-col'>
-                    <FastField
-                      name='rememberMe'
-                      component={CheckboxField}
-                      label='Remember Me'
-                    />
-                  </div>
-                  <div className='p-field p-col'>
-                    <Link to='/auth/forget-password'>Forget Password</Link>
-                  </div>
+                <div
+                  className='p-fluid'
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    marginBottom: 20,
+                  }}>
+                  <FastField
+                    name='rememberMe'
+                    component={CheckboxField}
+                    label='Remember Me'
+                    labelStyle={{ color: '#fff' }}
+                  />
+                  <Link
+                    style={{
+                      alignSelf: 'center',
+                      color: '#fff',
+                    }}
+                    to='/auth/forget-password'>
+                    Forget Password
+                  </Link>
                 </div>
-
-                <Button
-                  label='Login'
-                  icon={isSubmitting ? 'pi pi-spin pi-spinner' : undefined}
-                />
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Button
+                    style={{ alignSelf: 'center' }}
+                    label='Login'
+                    icon={isSubmitting ? 'pi pi-spin pi-spinner' : undefined}
+                  />
+                </div>
               </Form>
             );
           }}

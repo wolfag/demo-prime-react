@@ -28,25 +28,19 @@ function PasswordField(props) {
     label,
     placeholder,
     disabled,
+    ...rest
   } = props;
   const showError = errors[name] && touched[name];
 
   return (
-    <div
-      style={{
-        padding: 5,
-        borderRadius: 10,
-        borderColor: 'red',
-        borderWidth: 1,
-      }}>
-      <Password
-        {...field}
-        id={name}
-        placeholder={placeholder}
-        disabled={disabled}
-        type={type}
-      />
-    </div>
+    <Password
+      {...field}
+      id={name}
+      placeholder={placeholder}
+      disabled={disabled}
+      type={type}
+      {...rest}
+    />
   );
 }
 
